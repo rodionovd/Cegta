@@ -137,6 +137,56 @@
 			if (!expectInt(that, _##this)) return; \
 		} while (0)
 
+// Userland helpers for unsigned int
+#define expectUInt(that, this) \
+		({ \
+			CegtaStatement(that, this, #this, "%u", ((that) == (this)), ((that) != (this))); \
+		})
+#define requireUInt(that, this) \
+		do { \
+			if (!expectUInt(that, _##this)) return; \
+		} while (0)
+
+// Userland helpers for long
+#define expectLong(that, this) \
+		({ \
+			CegtaStatement(that, this, #this, "%ld", ((that) == (this)), ((that) != (this))); \
+		})
+#define requireLong(that, this) \
+		do { \
+			if (!expectLong(that, _##this)) return; \
+		} while (0)
+
+// Userland helpers for unsigned long
+#define expectULong(that, this) \
+		({ \
+			CegtaStatement(that, this, #this, "%lu", ((that) == (this)), ((that) != (this))); \
+		})
+#define requireULong(that, this) \
+		do { \
+			if (!expectULong(that, _##this)) return; \
+		} while (0)
+
+// Userland helpers for long long
+#define expectLongLong(that, this) \
+		({ \
+			CegtaStatement(that, this, #this, "%llu", ((that) == (this)), ((that) != (this))); \
+		})
+#define requireLongLong(that, this) \
+		do { \
+			if (!expectLongLong(that, _##this)) return; \
+		} while (0)
+
+// Userland helpers for unsigned long long
+#define expectULongLong(that, this) \
+		({ \
+			CegtaStatement(that, this, #this, "%llu", ((that) == (this)), ((that) != (this))); \
+		})
+#define requireULongLong(that, this) \
+		do { \
+			if (!expectULongLong(that, _##this)) return; \
+		} while (0)
+
 // Userland helpers for double
 #define expectDouble(that, this) \
 		({ \
