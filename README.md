@@ -8,7 +8,7 @@ A tiny DSL for TDD/BDD written in C.
 Cegta is just a PoC: one day I saw [Specta](https://github.com/specta/specta) and wondered if I could use the same DSL for testing my projects written in plain C. As it turns, I can.
 
 ### What's BDD, BTW?
-Check out the [Wikipedia article](http://en.wikipedia.org/wiki/Behavior-driven_development), discover [RSpec](http://tutorials.jumpstartlab.com/topics/internal_testing/rspec_and_bdd.html) or [Specta](https://github.com/specta/specta) iteself.
+Check out the [Wikipedia article](http://en.wikipedia.org/wiki/Behavior-driven_development) (yes, I'm *that* rude), discover [RSpec](http://tutorials.jumpstartlab.com/topics/internal_testing/rspec_and_bdd.html) or [Specta](https://github.com/specta/specta) iteself.
 
 ### What it looks like?
 Well, consider the snippet below:
@@ -57,6 +57,16 @@ SpecBegin(CegtaDemo)
 
 SpecEnd()
 ```
+
+### Usage
+Check out [`demo.c`](./demo/demo.c) file: it contains a demo test suit. To build&run it:
+
+```bash
+$ cd ./demo
+$ rake
+```
+
+> NOTE: you don't need to write `main()` routine in your tests: just replace it with a single `CegtaRun();` line.
 
 ---------
 
