@@ -23,6 +23,14 @@ CegtaRun();
 SpecBegin(CegtaDemo)
 
 	describe("Cegta's expect()", ^{
+		beforeEach(^(const char *current_it) {
+			// fprintf(stdout, "Prepare the environment for <%s>\n", current_it);
+		});
+
+		afterEach(^(const char *current_it) {
+			// fprintf(stdout, "Clean up the environment for <%s>\n", current_it);
+		});
+
 		it("should work well with integers and floating point numbers", ^{
 			int demo_int = 42;
 			expectInt(demo_int, toBe(42));
