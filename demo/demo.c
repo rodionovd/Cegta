@@ -46,7 +46,16 @@ SpecBegin(AnotherCegtaDemo)
 
 	describe("This one", ^{
 		it("may actually fail", ^{
-			expectInt(1, toBe(9));
+			requireInt(1, toBe(9));
+			// won't be even executed since the requirement above fails to fullfill
+			expectInt(0, toBe(90));
+		});
+
+		it("will definitely fail", ^{
+			char *demo_str = "yahoo";
+			// I mean we really can't proceed if this string has something with Yahoo
+			requireString(demo_str, notToBeLike("YaHoo"));
+			requireInt(strlen(demo_str), toBe(5));
 		});
 	});
 
