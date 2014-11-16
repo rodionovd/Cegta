@@ -55,7 +55,7 @@ SpecBegin(AnotherCegtaDemo)
 			char *demo_str = "yahoo";
 			// I mean we really can't proceed if this string has something with Yahoo
 			requireString(demo_str, notToBeLike("YaHoo"));
-			requireInt(strlen(demo_str), toBe(5));
+			requireULong(strlen(demo_str), toBe(5UL));
 		});
 	});
 
