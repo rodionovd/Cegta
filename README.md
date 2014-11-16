@@ -60,6 +60,15 @@ SpecBegin(CegtaDemo)
 SpecEnd()
 ```
 
+Sample output from the spec above:
+
+```
+Begin spec <CegtaDemo>
+	✓ Cegta's expect() should work well with integers and floating point numbers
+	✓ Cegta's expect() should work well with strings (char*) as well
+Done spec: 15 of 15 tests passed
+```
+
 ### Usage
 Check out [`demo.c`](./demo/demo.c) file: it contains a demo test suit. To build&run it:
 
