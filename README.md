@@ -3,7 +3,7 @@ Cegta
 
 A tiny DSL for TDD/BDD written in C.
 
-> `Cegta` should work on every modern OS with any C compiler, but I've only tested it on my OS X using `clang` compiler. Please, open an issue (or even a PR) if something is broken on your OS/compiler of choice.
+> `Cegta`'s based on [C blocks][0], so I'm not sure it will work on anything except for OS X and iOS.
 
 
 ### Why?
@@ -23,6 +23,14 @@ CegtaRun();
 SpecBegin(CegtaDemo)
 
 	describe("Cegta's expect()", ^{
+		beforeEach(^(const char *current_it) {
+			// fprintf(stdout, "Prepare the environment for <%s>\n", current_it);
+		});
+
+		afterEach(^(const char *current_it) {
+			// fprintf(stdout, "Clean up the environment for <%s>\n", current_it);
+		});
+
 		it("should work well with integers and floating point numbers", ^{
 			int demo_int = 42;
 			expectInt(demo_int, toBe(42));
@@ -98,3 +106,6 @@ If you found any bug(s) or something, please open an issue or a pull request —
 
 Dmitry Rodionov, 2014
 i.am.rodionovd@gmail.com
+
+
+   [0]: http://en.wikipedia.org/wiki/Blocks_(C_language_extension)
