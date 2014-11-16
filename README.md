@@ -45,7 +45,7 @@ SpecBegin(CegtaDemo)
 	describe("Cegta's expect()", ^{
 		it("should work well with strings (char*) as well", ^{
 			char* demo_str = "i am a demo string";
-			// toBe() for strings is a strcmp()-based comparsion
+			// toBe() for strings is a strcmp()-based comparison
 			expectString(demo_str, toBe("i am a demo string"));
 			// ...Like() for strings is a case insensitive comparison
 			expectString(demo_str, toBeLike("i Am a DEmO strING"));
@@ -58,6 +58,26 @@ SpecBegin(CegtaDemo)
 	});
 
 SpecEnd()
+```
+
+Sample output from the spec above:
+
+```
+Begin spec <CegtaDemo>
+	✓ Cegta's expect() should work well with integers and floating point numbers
+	✓ Cegta's expect() should work well with strings (char*) as well
+Done spec: 15 of 15 tests passed
+```
+
+and from a failing spec:
+
+```
+Begin spec <FailingCegtaDemo>
+	* [demo.c, L49]
+	|	expected 1 toBe(9) -> 9
+	|	     got 1 is(1)
+	𝙓 This one may actually fail
+Done spec: 0 of 1 tests passed
 ```
 
 ### Usage
