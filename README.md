@@ -45,13 +45,15 @@ SpecBegin(CegtaDemo)
 	describe("Cegta's expect()", ^{
 		it("should work well with strings (char*) as well", ^{
 			char* demo_str = "i am a demo string";
+
+			// if requreX() fails, Cegta skips all of the tests below
+			requireString(demo_str, notToBe(NULL));
 			// toBe() for strings is a strcmp()-based comparison
 			expectString(demo_str, toBe("i am a demo string"));
 			// ...Like() for strings is a case insensitive comparison
 			expectString(demo_str, toBeLike("i Am a DEmO strING"));
 			expectString(demo_str, notToBeLike("another string"));
 			// NULLs are also welcome
-			expectString(demo_str, notToBe(NULL));
 			expectString(NULL, toBe(NULL));
 			expectString(NULL, notToBe(demo_str));
 		});
