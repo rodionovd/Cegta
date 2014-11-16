@@ -69,6 +69,17 @@ Begin spec <CegtaDemo>
 Done spec: 15 of 15 tests passed
 ```
 
+and from a failing spec:
+
+```
+Begin spec <FailingCegtaDemo>
+	* [demo.c, L49]
+	|	expected 1 toBe(9) -> 9
+	|	     got 1 is(1)
+	𝙓 This one may actually fail
+Done spec: 0 of 1 tests passed
+```
+
 ### Usage
 Check out [`demo.c`](./demo/demo.c) file: it contains a demo test suit. To build&run it:
 
