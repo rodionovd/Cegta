@@ -45,6 +45,14 @@ SpecEnd()
 SpecBegin(AnotherCegtaDemo)
 
 describe("This one", ^{
+	beforeEach(^(const char *current_it) {
+		fprintf(stdout, ":: before <%s>\n", current_it);
+	});
+
+	afterEach(^(const char *current_it) {
+		fprintf(stdout, ":: after <%s>\n", current_it);
+	});
+
 	it("may actually fail", ^{
 		requireInt(1, toBe(9));
 		// won't be even executed since the requirement above fails to fullfill
