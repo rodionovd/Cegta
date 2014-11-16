@@ -76,12 +76,23 @@ void Cegta_spec_ ##specname (int argc, char **argv, char **env) { \
 }
 
 #define describe(label, block) \
-	__context = label; \
-	block();
+	{ \
+		__block void (^__describe_beforeEachBlock)(const char *) = ^void(const char *t) {}; \
+		__block void (^__describe_AfterEachBlock)(const char *) = ^void(const char *t) {}; \
+		__context = label; \
+		block(); \
+	}
+
+#define beforeEach(block) \
+	__describe_beforeEachBlock = block;
+
+#define afterEach(block) \
+	__describe_AfterEachBlock = block;
 
 #define it(label, block) \
 	{ \
 		__it = label; \
+		__describe_beforeEachBlock(__it); \
 		__block int __it_test_count = 0, __it_test_passed = 0; \
 		block(); \
 		if (__it_test_count == __it_test_passed) { \
@@ -91,6 +102,7 @@ void Cegta_spec_ ##specname (int argc, char **argv, char **env) { \
 		} \
 		__spec_tests += __it_test_count; \
 		__spec_test_passed += __it_test_passed; \
+		__describe_AfterEachBlock(__it); \
 	}
 
 #pragma clang diagnostic push
