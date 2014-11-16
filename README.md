@@ -3,6 +3,8 @@ Cegta
 
 A tiny DSL for TDD/BDD written in C.
 
+> `Cegta` should work on every modern OS with any C compiler, but I've only tested it on my OS X using `clang` compiler. Please, open an issue (or even a PR) if something is broken on your OS/compiler of choice.
+
 
 ### Why?
 Cegta is just a PoC: one day I saw [Specta](https://github.com/specta/specta) and wondered if I could use the same DSL for testing my projects written in plain C. As it turns, I can.
