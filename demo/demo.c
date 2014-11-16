@@ -1,22 +1,4 @@
-Cegta
-=====
-
-A tiny DSL for TDD/BDD written in C.
-
-> `Cegta` should work on every modern OS with any C compiler, but I've only tested it on my OS X using `clang` compiler. Please, open an issue (or even a PR) if something is broken on your OS/compiler of choice.
-
-
-### Why?
-Cegta is just a PoC: one day I saw [Specta](https://github.com/specta/specta) and wondered if I could use the same DSL for testing my projects written in plain C. As it turns, I can.
-
-### What's BDD, BTW?
-Check out the [Wikipedia article](http://en.wikipedia.org/wiki/Behavior-driven_development) (yes, I'm *that* rude), discover [RSpec](http://tutorials.jumpstartlab.com/topics/internal_testing/rspec_and_bdd.html) or [Specta](https://github.com/specta/specta) iteself.
-
-### What it looks like?
-Well, consider the snippet below:
-
-```c
-#include "Cegta.h"
+#include "../Cegta.h"
 
 CegtaRun();
 
@@ -58,21 +40,14 @@ SpecBegin(CegtaDemo)
 	});
 
 SpecEnd()
-```
 
-### Usage
-Check out [`demo.c`](./demo/demo.c) file: it contains a demo test suit. To build&run it:
 
-```bash
-$ cd ./demo
-$ rake
-```
+SpecBegin(AnotherCegtaDemo)
 
-> NOTE: you don't need to write `main()` routine in your tests: just replace it with a single `CegtaRun();` line.
+	describe("This one", ^{
+		it("may actually fail", ^{
+			expectInt(1, toBe(9));
+		});
+	});
 
----------
-
-If you found any bug(s) or something, please open an issue or a pull request — I'd appreciate your help! (^,,^)
-
-Dmitry Rodionov, 2014
-i.am.rodionovd@gmail.com
+SpecEnd()
