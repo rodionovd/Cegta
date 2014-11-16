@@ -29,8 +29,8 @@
   *
   * Initially (during the first spec execution) we set argv[x] to EXIT_SUCCESS, then if some
   * spec fails we set argv[x] to EXIT_FAILURE.
-  * Eventually the program starts executing main() function after completion of all Cegta
-  * specs. But |argv| array is aleady modified so we just need to return argv[x].
+  * After completion of all Cegta specs the program starts executing main() function. But
+  * |argv| array is aleady modified so we just need to return argv[x] from there.
   */
 #define CEGTA_ARGV_TEST_RESULTS_INDEX 1
 
