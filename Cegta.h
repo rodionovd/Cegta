@@ -19,9 +19,9 @@
 #define CEGTA_EPSILON 0.000000001
 
  /**
-  * Since a single Cegta spec is just a C function-construtor (i.e. it'll be called at
-  * program startup), it's clear that we have to store information about whether it failed
-  * or not *somewhere outside* this function (i.e. in a global scope).
+  * Since a single Cegta spec is just a C function, it's clear that we have to store
+  * information about whether it failed or not *somewhere outside* this function
+  * (i.e. in a global scope).
   *
   * Also, since Cegta is just a single-header-based thing and global variables are so
   * mainstream, I decided to modify |argv| array in order to store the whole test suit
