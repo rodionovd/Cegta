@@ -27,7 +27,7 @@ SpecBegin(CegtaDemo)
 	describe("Cegta's expect()", ^{
 		it("should work well with strings (char*) as well", ^{
 			char* demo_str = "i am a demo string";
-			// toBe() for strings is a strcmp()-based comparsion
+			// toBe() for strings is a strcmp()-based comparison
 			expectString(demo_str, toBe("i am a demo string"));
 			// ...Like() for strings is a case insensitive comparison
 			expectString(demo_str, toBeLike("i Am a DEmO strING"));
