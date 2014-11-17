@@ -7,7 +7,7 @@ A tiny DSL for TDD/BDD written in C.
 
 
 ### Why?
-Cegta is just a PoC: one day I saw [Specta](https://github.com/specta/specta) and wondered if I could use the same DSL for testing my projects written in plain C. As it turns, I can.
+`Cegta` is just a PoC: one day I saw [Specta](https://github.com/specta/specta) and wondered if I could use the same DSL for testing my projects written in plain C. As it turns out, I can.
 
 ### What's BDD, BTW?
 Check out the [Wikipedia article](http://en.wikipedia.org/wiki/Behavior-driven_development) (yes, I'm *that* rude), discover [RSpec](http://tutorials.jumpstartlab.com/topics/internal_testing/rspec_and_bdd.html) or [Specta](https://github.com/specta/specta) iteself.
