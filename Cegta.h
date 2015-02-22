@@ -54,6 +54,7 @@ void Cegta_spec_ ##specname (int argc, char **argv, char **env) { \
 	if ((int)argv[CEGTA_ARGV_TEST_RESULTS_INDEX] != EXIT_FAILURE) {\
 		argv[CEGTA_ARGV_TEST_RESULTS_INDEX] = (char *)EXIT_SUCCESS; \
 	} \
+	__unused __block int CegtaSpecVerbose = 1; \
 	const char *__context = NULL; \
 	__unused __block const char *__it = NULL; \
 	__unused __block int __spec_tests = 0, __spec_test_passed = 0;\
@@ -125,15 +126,19 @@ void Cegta_spec_ ##specname (int argc, char **argv, char **env) { \
 		int __it_before_tests_passed = __it_test_passed; \
 		if (((strstr(this_as_str, "notTo") == this_as_str) || strstr(this_as_str, "_notTo") == this_as_str) \
 			&& !fulfillNotTo) { \
-			fprintf(stdout, "\t* [%s, L%d]\n\t|\texpected %s %s\n", \
-				__FILE__, __LINE__, #that, (this_as_str[0] == '_') ? this_as_str+1 : this_as_str); \
+			if (CegtaSpecVerbose) { \
+				fprintf(stdout, "\t* [%s, L%d]\n\t|\texpected %s %s\n", \
+					__FILE__, __LINE__, #that, (this_as_str[0] == '_') ? this_as_str+1 : this_as_str); \
+			} \
 		} else \
 		if (((strstr(this_as_str, "to") == this_as_str) || (strstr(this_as_str, "_to") == this_as_str)) \
 			&& !fulfillTo) { \
-			fprintf(stdout, "\t* [%s, L%d]\n\t|\texpected %s %s -> "format_str \
-				"\n\t|\t     got %s is("format_str")\n", \
-					__FILE__, __LINE__, #that, (this_as_str[0] == '_') ? this_as_str+1 : this_as_str, \
-					this, #that, that); \
+			if (CegtaSpecVerbose) { \
+				fprintf(stdout, "\t* [%s, L%d]\n\t|\texpected %s %s -> "format_str \
+					"\n\t|\t     got %s is("format_str")\n", \
+						__FILE__, __LINE__, #that, (this_as_str[0] == '_') ? this_as_str+1 : this_as_str, \
+						this, #that, that); \
+			} \
 		} else { \
 			++__it_test_passed; \
 		} \

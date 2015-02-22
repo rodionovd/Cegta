@@ -77,3 +77,17 @@ describe("This one", ^{
 });
 
 SpecEnd()
+
+
+SpecBegin(CegtaSpecFailingWithoutDetails)
+
+// this variable is per-spec
+CegtaSpecVerbose = 0;
+
+describe("no failure details will be provided", ^{
+	it("", ^{
+		expectInt(42, toBe(90));
+	});
+});
+
+SpecEnd()
