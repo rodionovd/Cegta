@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include "../Cegta.h"
 
 CegtaMain();
@@ -45,6 +46,12 @@ describe("Cegta's expect()", ^{
 
 		requirePtr(q, toBe(NULL));
 		expectPtr(p, notToBe(NULL));
+	});
+
+	it("should also accept booleans", ^{
+		bool flag = true;
+		requireBoolean(flag, notToBe(false));
+		expectBoolean(flag, toBe(true));
 	});
 });
 

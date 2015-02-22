@@ -275,6 +275,16 @@ void Cegta_spec_ ##specname (int argc, char **argv, char **env) { \
 		if (!expectPtr(that, _##this)) return; \
 	} while (0)
 
+// Userland helpers for booleans
+#define expectBoolean(that, this) \
+	({ \
+		CegtaStatement(that, this, #this, "%d", ((that) == (this)), ((that) != (this))); \
+	})
+#define requireBoolean(that, this) \
+	do { \
+		if (!expectPtr(that, _##this)) return; \
+	} while (0)
+
 #pragma clang diagnostic pop
 
 #endif // #ifndef CEGTA_H
