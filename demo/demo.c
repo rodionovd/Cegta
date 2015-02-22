@@ -1,6 +1,6 @@
 #include "../Cegta.h"
 
-CegtaRun();
+CegtaMain();
 
 SpecBegin(CegtaDemo)
 
@@ -37,6 +37,15 @@ describe("Cegta's expect()", ^{
 		expectString(NULL, toBe(NULL));
 		expectString(NULL, notToBe(demo_str));
 	});
+
+	it("should work with pointers too", ^{
+		int demo_value = 42;
+		int *p = &demo_value;
+		int *q = NULL;
+
+		requirePtr(q, toBe(NULL));
+		expectPtr(p, notToBe(NULL));
+	});
 });
 
 SpecEnd()
@@ -64,6 +73,20 @@ describe("This one", ^{
 		// I mean we really can't proceed if this string has something with Yahoo
 		requireString(demo_str, notToBeLike("YaHoo"));
 		requireULong(strlen(demo_str), toBe(5UL));
+	});
+});
+
+SpecEnd()
+
+
+SpecBegin(CegtaSpecFailingWithoutDetails)
+
+// this variable is per-spec
+CegtaSpecVerbose = 0;
+
+describe("no failure details will be provided", ^{
+	it("", ^{
+		expectInt(42, toBe(90));
 	});
 });
 

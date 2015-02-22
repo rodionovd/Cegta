@@ -18,7 +18,7 @@ Well, consider the snippet below:
 ```c
 #include "Cegta.h"
 
-CegtaRun();
+CegtaMain();
 
 SpecBegin(CegtaDemo)
 
@@ -90,6 +90,23 @@ Begin spec <FailingCegtaDemo>
 Done spec: 0 of 1 tests passed
 ```
 
+Note that you can also disable the verbose error printing by setting `CegtaSpecVerbose` to zero:  
+
+```c
+SpecBegin(CegtaSpecFailingWithoutDetails)
+
+// this variable is spec-wise
+CegtaSpecVerbose = 0;
+
+describe("no failure details will be provided", ^{
+	it("", ^{
+		expectInt(42, toBe(90));
+	});
+});
+
+SpecEnd()
+```
+
 ### Usage
 Check out [`demo.c`](./demo/demo.c) file: it contains a demo test suit. To build&run it:
 
@@ -98,7 +115,7 @@ $ cd ./demo
 $ rake
 ```
 
-> NOTE: you don't need to write `main()` routine in your tests: just replace it with a single `CegtaRun();` line.
+> NOTE: you don't need to write `main()` routine in your tests: just replace it with a single `CegtaMain();` line.
 
 ---------
 
