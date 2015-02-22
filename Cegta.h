@@ -38,7 +38,7 @@
  * Creates main() routine for the test suit.
  * (thus it should be called only once).
  */
-#define CegtaRun() \
+#define CegtaMain() \
 	int main(int argc, char const *argv[]) \
 	{ \
 		return (int)argv[CEGTA_ARGV_TEST_RESULTS_INDEX]; \

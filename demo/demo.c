@@ -1,6 +1,6 @@
 #include "../Cegta.h"
 
-CegtaRun();
+CegtaMain();
 
 SpecBegin(CegtaDemo)
 

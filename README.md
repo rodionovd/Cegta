@@ -18,7 +18,7 @@ Well, consider the snippet below:
 ```c
 #include "Cegta.h"
 
-CegtaRun();
+CegtaMain();
 
 SpecBegin(CegtaDemo)
 
@@ -98,7 +98,7 @@ $ cd ./demo
 $ rake
 ```
 
-> NOTE: you don't need to write `main()` routine in your tests: just replace it with a single `CegtaRun();` line.
+> NOTE: you don't need to write `main()` routine in your tests: just replace it with a single `CegtaMain();` line.
 
 ---------
 
