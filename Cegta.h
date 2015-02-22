@@ -260,6 +260,16 @@ void Cegta_spec_ ##specname (int argc, char **argv, char **env) { \
 		if (!expectString(that, _##this)) return; \
 	} while (0)
 
+// Userland helpers for pointers
+#define expectPtr(that, this) \
+	({ \
+		CegtaStatement(that, this, #this, "%p", ((that) == (this)), ((that) != (this))); \
+	})
+#define requirePtr(that, this) \
+	do { \
+		if (!expectPtr(that, _##this)) return; \
+	} while (0)
+
 #pragma clang diagnostic pop
 
 #endif // #ifndef CEGTA_H
